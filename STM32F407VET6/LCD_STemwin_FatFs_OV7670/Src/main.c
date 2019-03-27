@@ -80,8 +80,8 @@
 #define FRAMEWIDTH 160
 #define FRAMEHIGTH 120
 
-uint8_t Frame_buff[FRAMEWIDTH*FRAMEHIGTH*2];
-
+//uint8_t Frame_buff[FRAMEWIDTH*FRAMEHIGTH*2];
+uint8_t * Frame_buff;
 uint32_t Pixel_X_Index=0,Pixel_Y_Index=0,i=0,JPEG_Index=0;
 
 char str_buf[16]={0};
@@ -110,7 +110,7 @@ void BSP_CAMERA_ContinuousStart(uint8_t *buff);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+//  MPU_Region_InitTypeDef MPU_Region;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -139,7 +139,7 @@ int main(void)
   MX_SDIO_SD_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-
+  Frame_buff = (uint8_t *)malloc(160*120*2);
 		Lcd_Initialize();
 		Lcd_ColorBox(0,0,320,240,0xFFF);
 		
@@ -148,8 +148,8 @@ int main(void)
 
 
 		f_mount(&SDFatFS,(TCHAR const*)SDPath,0);
-	
-
+//	 MPU_Region.AccessPermission=
+//  HAL_MPU_ConfigRegion(&MPU_Region);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -175,16 +175,16 @@ int main(void)
 //				LCD_WR_REG(0x01, 0x1027);
 //				LCD_WR_REG(0x03, 0x010A); //横屏，从右上角开始，从左到右，从上到下			
 			
-//				Lcd_SetCursor(0,0);
-//				for(Pixel_Y_Index=0;Pixel_Y_Index<120;Pixel_Y_Index++)
-//				{
-//						for(Pixel_X_Index=0;Pixel_X_Index<160;Pixel_X_Index++)
-//						{
-//							 i=Pixel_X_Index*2+Pixel_Y_Index*FRAMEWIDTH*2;
-//							 i=Pixel_X_Index+Pixel_Y_Index*FRAMEWIDTH;
-//								DrawPixel(Pixel_X_Index, Pixel_Y_Index, (Frame_buff[i]<<8)|(Frame_buff[i+1]) );
-//						}
-//				}		
+				Lcd_SetCursor(0,0);
+				for(Pixel_Y_Index=0;Pixel_Y_Index<120;Pixel_Y_Index++)
+				{
+						for(Pixel_X_Index=0;Pixel_X_Index<160;Pixel_X_Index++)
+						{
+							 i=Pixel_X_Index*2+Pixel_Y_Index*FRAMEWIDTH*2;
+							 i=Pixel_X_Index+Pixel_Y_Index*FRAMEWIDTH;
+								DrawPixel(Pixel_X_Index, Pixel_Y_Index, (Frame_buff[i]<<8)|(Frame_buff[i+1]) );
+						}
+				}		
 //				sprintf(str_buf,"%dth.bmp",JPEG_Index);
 //    bmp_encode(str_buf,(uint8_t *)Frame_buff,FRAMEWIDTH,FRAMEHIGTH);
 //				JPEG_Index++;

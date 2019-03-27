@@ -654,7 +654,7 @@ uint8_t OV7670_Init(void)
 	{
 
 		OV7670_Config();
-		OV7670_Set_window(180,24,160,120);
+		OV7670_Set_window(272,16,320,240);
 	}
 	return 1;
 }

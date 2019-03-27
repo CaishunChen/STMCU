@@ -134,23 +134,29 @@ int main(void)
   HAL_Delay(100);
   
   LED0_ON;
-  LED1_ON;
+ 
 
 //		SendMessage(4);		
 		
 		HAL_ADCEx_Calibration_Start(&hadc);
 		
 		
-		
+		HAL_Delay(100);
 		HAL_UART_Receive_IT(&hWIFI, &WIFI_Data, 1); 
+		HAL_Delay(100);
 		HAL_UART_Receive_IT(&hUCUART, &UC_Data, 1);
-		
+		HAL_Delay(100);
 		wifi_protocol_init();
 		mcu_reset_wifi();
-  mcu_get_reset_wifi_flag();
-  mcu_start_wifitest();
-//		product_info_update();
-
+  while ( mcu_get_wifi_work_state() != WIFI_CONNECTED  )
+		{
+		  LED1_ON;
+			 HAL_Delay(10);
+			 LED1_OFF;
+			 HAL_Delay(500);
+		}
+		
+  LED1_ON;
   HAL_TIM_Base_Start_IT(&htim17);
   /* USER CODE END 2 */
 

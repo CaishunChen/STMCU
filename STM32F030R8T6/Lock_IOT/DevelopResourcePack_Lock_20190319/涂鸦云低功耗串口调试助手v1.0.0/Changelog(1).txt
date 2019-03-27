@@ -1,0 +1,6 @@
+version:2.1.2 build:6690
+date:2018-04-25
+author:daizb
+git tag:涂鸦云低功耗串口调试助手v1.0.0
+note:
+	* 低功耗云串口助手首版

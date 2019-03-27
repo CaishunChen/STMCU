@@ -1,0 +1,12 @@
+version:1.0.1
+author:jiangjp
+git tag:涂鸦云低功耗MCU串口调试助手v1.0.1
+date:2018-07-04
+	* 添加了检查更新的功能
+
+version:1.0.0
+Build:6689 revision:30767
+author:daizb
+git tag:涂鸦云低功耗MCU串口调试助手v1.0.0
+date:2018-04-25
+	* 低功耗MCU调试助手首版

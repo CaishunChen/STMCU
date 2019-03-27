@@ -457,6 +457,11 @@
               <FileType>1</FileType>
               <FilePath>../Src/stm32f4xx_hal_msp.c</FilePath>
             </File>
+            <File>
+              <FileName>LCD_STemwin_FatFs_OV7670.map</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LCD_STemwin_FatFs_OV7670\LCD_STemwin_FatFs_OV7670.map</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

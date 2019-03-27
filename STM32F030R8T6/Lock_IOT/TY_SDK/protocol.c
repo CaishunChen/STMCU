@@ -234,7 +234,7 @@ void all_data_update(void)
 *****************************************************************************/
 void mcu_write_rtctime(unsigned char time[])
 {
-  #error "请自行完成RTC时钟写入代码,并删除该行"
+//  #error "请自行完成RTC时钟写入代码,并删除该行"
   /*
   time[0]为是否获取时间成功标志，为 0 表示失败，为 1表示成功
   time[1] 为 年 份 , 0x00 表 示2000 年
@@ -303,7 +303,7 @@ void wifi_test_result(unsigned char result,unsigned char rssi)
 *****************************************************************************/
 unsigned char mcu_firm_update_handle(const unsigned char value[],unsigned long position,unsigned short length)
 {
-  #error "请自行完成MCU固件升级代码,完成后请删除该行"
+//  #error "请自行完成MCU固件升级代码,完成后请删除该行"
   if(length == 0)
   {
     //固件数据发送完成
@@ -312,6 +312,7 @@ unsigned char mcu_firm_update_handle(const unsigned char value[],unsigned long p
   else
   {
     //固件数据处理
+			 
   }
   
   return SUCCESS;
